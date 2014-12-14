@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :users, only: [:create]
+  resources :users, only: [:create] do
+    member do
+      get :sleep_cycle
+    end
+  end
   resources :awakes, only: [:create]
 
   # The priority is based upon order of creation: first created -> highest priority.
