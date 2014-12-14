@@ -1,0 +1,420 @@
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20141214061325)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20141214061325)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141214061325"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAwakes (20141214062433)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "awakes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141214062433"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-13 23:52:52 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as */*
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (4.9ms)
+Completed 200 OK in 56ms (Views: 19.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/" for 127.0.0.1 at 2014-12-13 23:54:39 -0800
+
+ActionController::RoutingError (No route matches [POST] "/"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (13.0ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (41.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-12-13 23:55:04 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"longkt90"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 0ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:176:in `handle_unverified_request'
+  actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:202:in `handle_unverified_request'
+  actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:197:in `verify_authenticity_token'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:160:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:160:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-12-13 23:57:48 -0800
+
+SyntaxError (/Users/Quinnie/projects/flir/app/controllers/application_controller.rb:10: syntax error, unexpected keyword_end, expecting $end):
+  app/controllers/application_controller.rb:10: syntax error, unexpected keyword_end, expecting $end
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (51.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-12-13 23:58:03 -0800
+
+SyntaxError (/Users/Quinnie/projects/flir/app/controllers/application_controller.rb:10: syntax error, unexpected keyword_end, expecting $end):
+  app/controllers/application_controller.rb:10: syntax error, unexpected keyword_end, expecting $end
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (34.0ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (48.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-12-13 23:58:28 -0800
+
+SyntaxError (/Users/Quinnie/projects/flir/app/controllers/application_controller.rb:10: syntax error, unexpected keyword_end, expecting $end):
+  app/controllers/application_controller.rb:10: syntax error, unexpected keyword_end, expecting $end
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-12-13 23:58:34 -0800
+
+SyntaxError (/Users/Quinnie/projects/flir/app/controllers/application_controller.rb:10: syntax error, unexpected keyword_end, expecting $end):
+  app/controllers/application_controller.rb:10: syntax error, unexpected keyword_end, expecting $end
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-12-13 23:59:09 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"longkt90"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)[0m  [["created_at", "2014-12-14 07:59:09.992410"], ["updated_at", "2014-12-14 07:59:09.992410"], ["username", "longkt90"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Completed 200 OK in 27ms (Views: 0.6ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/awakes" for 127.0.0.1 at 2014-12-14 00:00:07 -0800
+Processing by AwakesController#create as */*
+  Parameters: {"userid"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "awakes" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2014-12-14 08:00:07.736496"], ["updated_at", "2014-12-14 08:00:07.736496"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  commit transaction
+Completed 200 OK in 91ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/awakes" for 127.0.0.1 at 2014-12-14 00:00:12 -0800
+Processing by AwakesController#create as */*
+  Parameters: {"userid"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "awakes" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2014-12-14 08:00:12.198385"], ["updated_at", "2014-12-14 08:00:12.198385"], ["user_id", 1]]
+  [1m[35m (7.9ms)[0m  commit transaction
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 8.5ms)
+
+
+Started POST "/awakes" for 127.0.0.1 at 2014-12-14 00:00:16 -0800
+Processing by AwakesController#create as */*
+  Parameters: {"userid"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "awakes" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2014-12-14 08:00:16.296140"], ["updated_at", "2014-12-14 08:00:16.296140"], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/awakes" for 127.0.0.1 at 2014-12-14 00:00:20 -0800
+Processing by AwakesController#create as */*
+  Parameters: {"userid"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "awakes" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2014-12-14 08:00:20.824015"], ["updated_at", "2014-12-14 08:00:20.824015"], ["user_id", 1]]
+  [1m[35m (8.7ms)[0m  commit transaction
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/awakes" for 127.0.0.1 at 2014-12-14 00:00:26 -0800
+Processing by AwakesController#create as */*
+  Parameters: {"userid"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "awakes" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2014-12-14 08:00:26.234704"], ["updated_at", "2014-12-14 08:00:26.234704"], ["user_id", 1]]
+  [1m[35m (7.8ms)[0m  commit transaction
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 8.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mAwake Load (0.3ms)[0m  SELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ? AND (created_at > '2014-12-13 20:17:39.634333')  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mAwake Load (0.1ms)[0m  SELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ? AND (created_at > '2014-12-13 20:19:42.843173')  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mAwake Load (0.2ms)[0m  SELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ? AND (created_at > '2014-12-13 20:20:07.592777')  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mAwake Load (0.2ms)[0m  SELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ? AND (created_at > '2014-12-13 20:21:05.161374')  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mAwake Load (0.1ms)[0m  SELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ? AND (created_at > '2014-12-13 20:21:46.454601')  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mAwake Load (0.2ms)[0m  SELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ? AND (created_at > '2014-12-13 20:21:52.852441')  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mAwake Load (0.2ms)[0m  SELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ? AND (created_at > '2014-12-13 20:22:58.986209')  [["user_id", 1]]
+  [1m[36mAwake Load (0.2ms)[0m  [1mSELECT  "awakes".* FROM "awakes"   ORDER BY "awakes"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mAwake Load (0.1ms)[0m  [1mSELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "awakes" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)  [["created_at", "2014-12-14 08:23:40.628194"], ["updated_at", "2014-12-14 08:23:40.628194"], ["user_id", 1]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mAwake Load (0.1ms)[0m  [1mSELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ? AND (created_at > '2014-12-13 20:23:48.444022')[0m  [["user_id", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAwakeTimeToAwakes (20141214082709)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "awakes" ADD "awake_time" datetime[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141214082709"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mAwake Load (1.9ms)[0m  [1mSELECT "awakes".* FROM "awakes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "awakes" WHERE "awakes"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "awakes" WHERE "awakes"."id" = ?  [["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "awakes" WHERE "awakes"."id" = ?[0m  [["id", 3]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "awakes" WHERE "awakes"."id" = ?  [["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "awakes" WHERE "awakes"."id" = ?[0m  [["id", 5]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "awakes" WHERE "awakes"."id" = ?  [["id", 6]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+
+
+Started POST "/awakes" for 127.0.0.1 at 2014-12-14 00:32:14 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AwakesController#create as */*
+  Parameters: {"userid"=>"1"}
+Completed 500 Internal Server Error in 23ms
+
+SyntaxError (/Users/Quinnie/projects/flir/app/models/user.rb:31: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+    return times > 0 ? total_time / times : 0 w#in miliseconds
+                                               ^):
+  app/models/user.rb:31: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/awakes_controller.rb:3:in `create'
+
+
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.5ms)
+
+
+Started POST "/awakes" for 127.0.0.1 at 2014-12-14 00:32:55 -0800
+Processing by AwakesController#create as */*
+  Parameters: {"userid"=>"1"}
+Completed 500 Internal Server Error in 2ms
+
+SyntaxError (/Users/Quinnie/projects/flir/app/models/user.rb:31: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+    return times > 0 ? total_time / times : 0 w#in miliseconds
+                                               ^):
+  app/models/user.rb:31: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/awakes_controller.rb:3:in `create'
+
+
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Quinnie/.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)
+
+
+Started POST "/awakes" for 127.0.0.1 at 2014-12-14 00:33:46 -0800
+Processing by AwakesController#create as */*
+  Parameters: {"userid"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "awakes" ("awake_time", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["awake_time", "2014-12-14 08:33:46.508111"], ["created_at", "2014-12-14 08:33:46.520810"], ["updated_at", "2014-12-14 08:33:46.520810"], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 92ms (Views: 0.3ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/awakes" for 127.0.0.1 at 2014-12-14 00:34:03 -0800
+Processing by AwakesController#create as */*
+  Parameters: {"userid"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "awakes" ("awake_time", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["awake_time", "2014-12-14 08:34:03.662978"], ["created_at", "2014-12-14 08:34:03.663640"], ["updated_at", "2014-12-14 08:34:03.663640"], ["user_id", 1]]
+  [1m[36m (8.3ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 8.7ms)
+  [1m[36mAwake Load (0.1ms)[0m  [1mSELECT  "awakes".* FROM "awakes"   ORDER BY "awakes"."id" ASC LIMIT 1[0m
+  [1m[35mAwake Load (0.2ms)[0m  SELECT  "awakes".* FROM "awakes"   ORDER BY "awakes"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "awakes" SET "awake_time" = ?, "updated_at" = ? WHERE "awakes"."id" = 7  [["awake_time", "2014-12-14 03:34:43.472159"], ["updated_at", "2014-12-14 08:34:46.591070"]]
+  [1m[36m (8.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mAwake Load (0.2ms)[0m  SELECT  "awakes".* FROM "awakes"   ORDER BY "awakes"."id" DESC LIMIT 2
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "awakes" SET "awake_time" = ?, "updated_at" = ? WHERE "awakes"."id" = 7  [["awake_time", "2014-12-14 05:35:16.355135"], ["updated_at", "2014-12-14 08:35:20.310125"]]
+  [1m[36m (8.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mAwake Load (0.3ms)[0m  [1mSELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ? AND (awake_time > '2014-12-13 20:36:06.698801')[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mSQL (8.8ms)[0m  [1mUPDATE "awakes" SET "user_id" = NULL WHERE "awakes"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "awakes" ("awake_time", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["awake_time", "2014-12-14 02:40:35.794598"], ["created_at", "2014-12-14 08:40:35.802513"], ["updated_at", "2014-12-14 08:40:35.802513"], ["user_id", 1]]
+  [1m[35m (8.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "awakes" ("awake_time", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["awake_time", "2014-12-14 02:45:49.183927"], ["created_at", "2014-12-14 08:40:49.184962"], ["updated_at", "2014-12-14 08:40:49.184962"], ["user_id", 1]]
+  [1m[35m (8.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "awakes" ("awake_time", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["awake_time", "2014-12-14 02:50:58.401678"], ["created_at", "2014-12-14 08:40:58.402603"], ["updated_at", "2014-12-14 08:40:58.402603"], ["user_id", 1]]
+  [1m[35m (8.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "awakes" ("awake_time", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["awake_time", "2014-12-14 02:56:05.690918"], ["created_at", "2014-12-14 08:41:05.691801"], ["updated_at", "2014-12-14 08:41:05.691801"], ["user_id", 1]]
+  [1m[35m (7.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "awakes" ("awake_time", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["awake_time", "2014-12-14 03:56:21.128833"], ["created_at", "2014-12-14 08:41:21.130050"], ["updated_at", "2014-12-14 08:41:21.130050"], ["user_id", 1]]
+  [1m[35m (8.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "awakes" ("awake_time", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["awake_time", "2014-12-14 04:56:32.792179"], ["created_at", "2014-12-14 08:41:32.793302"], ["updated_at", "2014-12-14 08:41:32.793302"], ["user_id", 1]]
+  [1m[35m (8.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "awakes" ("awake_time", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["awake_time", "2014-12-14 05:56:41.818210"], ["created_at", "2014-12-14 08:41:41.819458"], ["updated_at", "2014-12-14 08:41:41.819458"], ["user_id", 1]]
+  [1m[35m (7.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mAwake Load (0.2ms)[0m  SELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ? AND (awake_time > '2014-12-13 20:41:55.220288')  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mAwake Load (0.1ms)[0m  SELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mAwake Load (0.2ms)[0m  SELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ? AND (awake_time > '2014-12-13 20:42:44.921115')  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mAwake Load (0.1ms)[0m  SELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ? AND (awake_time > '2014-12-13 20:44:37.656442')  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mAwake Load (0.1ms)[0m  SELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ? AND (awake_time > '2014-12-13 20:44:43.930143')  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mAwake Load (0.2ms)[0m  SELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ? AND (awake_time > '2014-12-13 20:45:17.236319')  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mAwake Load (0.5ms)[0m  SELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mAwake Load (0.3ms)[0m  SELECT "awakes".* FROM "awakes"  WHERE "awakes"."user_id" = ? AND (awake_time > '2014-12-13 20:48:52.817501')  [["user_id", 1]]
